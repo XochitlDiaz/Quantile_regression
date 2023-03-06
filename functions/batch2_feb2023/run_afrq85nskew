@@ -1,0 +1,30 @@
+#!/bin/bash
+# Use current working directory
+#$ -cwd
+#
+# Join stdout and stderr
+#$ -j y
+#
+# Run job through bash shell
+#$ -S /bin/bash
+#
+#You can edit the scriptsince this line
+#
+# Your job name
+#$ -N quantreg_batch2_afrq85
+#
+# Send an email after the job has finished
+#$ -m e
+#$ -M xochitl.happy@gmail.com
+#
+# If modules are needed, source modules environment (Do not delete the next line):
+. /etc/profile.d/modules.sh
+#
+# Add any modules you might require:
+module load bowtie2/2.2.6
+module load r/4.2.1
+#
+# Write your commands in the next line
+
+(R -f afrq85notskew.R )
+
